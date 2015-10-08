@@ -30,7 +30,7 @@ from datetime import datetime
 
 ###Variable Declarations###
 inputFolderContents	=[]
-cmdToExec		="cat {fullPath}"
+cmdToExec		=["cat ","'{fullPath}'"]
 ###########################
 
 #Initialisation
@@ -49,7 +49,7 @@ while True:
 		print("["+str(datetime.now())+"]Jobs found")
 		for i in inputFolderContents: #Go through every file in the folder
 			print("["+str(datetime.now())+"]Processing "+i)
-			os.system(cmdToExec.format(**{"filename":i,"fullPath":"./input/"+i})) #Replace certain placeholders for things like the input filename
+			subprocess.call(cmdToExec[0]+cmdToExec[1].format(**{"filename":i,"fullPath":"./input/"+i}),shell=False) #Replace certain placeholders for things like the input filename
 			os.remove("./input/"+i)
 	#else:
 		#print("["+str(datetime.now())+"]No jobs found")#Uncomment this if you want, I just commented it because I found it annoying, but you might find it useful, especially if you want to know that it's not frozen
