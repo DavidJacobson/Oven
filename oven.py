@@ -34,10 +34,10 @@ cmdToExec		=["cat ","'{fullPath}'"]
 ###########################
 
 #Initialisation
-if os.path.exists("./input/")==False:
+if not os.path.exists("./input/"):
 	os.makedirs("./input/")
 
-if os.path.exists("./output/")==False:
+if not os.path.exists("./output/"):
 	os.makedirs("./output/")
 
 #Main loop
